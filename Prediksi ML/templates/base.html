@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Raffa Memprediksi{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo_diskominfo.png') }}">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">
+
+        <!-- Brand Logo (PNG bulat) -->
+        <div class="brand-logo">
+          <img 
+            src="{{ url_for('static', filename='logo_diskominfo.png') }}" 
+            alt="Logo Diskominfo Kota Tangerang Selatan">
+        </div>
+
+        <!-- Brand Text -->
+        <div class="brand-text">
+          <h1>Diskominfo Tangsel Predictor</h1>
+          <p>Berbasis Machine Learning (Random Forest &amp; Naïve Bayes)</p>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span>© {{ 2025 }} Sistem Prediksi Gangguan Jaringan kominfo Tangerang Selatan Machine Learning dengan Flask Python</span>
+    </footer>
+
+  </div>
+</body>
+</html>

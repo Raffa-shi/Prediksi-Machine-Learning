@@ -1,0 +1,298 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard Prediksi{% endblock %}
+
+{% block content %}
+<div class="grid">
+  <!-- Card Form Input -->
+  <section class="card">
+    <h2>Rapa Memprediksi</h2>
+    <p class="subtitle">
+      Masukkan parameter jaringan berdasarkan data historis yang telah di cantumkan dari tim teknisi untuk memprediksi status: <strong>normal</strong> atau <strong>gangguan</strong>.
+    </p>
+
+    <form id="predict-form" class="form-grid">
+      <div class="form-group">
+        <label for="bandwidth">Bandwidth (Mbps)</label>
+        <input type="number" step="0.01" id="bandwidth" name="bandwidth" placeholder="contoh: 50" required>
+      </div>
+
+      <div class="form-group">
+        <label for="latency">Latency (ms)</label>
+        <input type="number" step="0.01" id="latency" name="latency" placeholder="contoh: 120" required>
+      </div>
+
+      <div class="form-group">
+        <label for="packet_loss">Packet Loss (%)</label>
+        <input type="number" step="0.01" id="packet_loss" name="packet_loss" placeholder="contoh: 1.5" required>
+      </div>
+
+      <div class="form-group">
+        <label for="uptime">Uptime (%)</label>
+        <input type="number" step="0.01" id="uptime" name="uptime" placeholder="contoh: 97.5" required>
+      </div>
+
+      <div class="form-group">
+        <label for="model">Pilih Model</label>
+        <select id="model" name="model">
+          <option value="rf">Random Forest</option>
+          <option value="nb">Naïve Bayes</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary">Prediksi</button>
+    </form>
+
+    <!-- Hasil Prediksi (versi interaktif, tanpa JSON) -->
+    <div id="result" class="result hidden" aria-live="polite">
+      <h3>Hasil Prediksi</h3>
+
+      <!-- status utama -->
+      <p id="status-line" class="status-line"></p>
+
+      <!-- model yang dipakai -->
+      <p id="model-line" class="model-info"></p>
+
+      <!-- tingkat keyakinan -->
+      <p id="confidence-line" class="confidence-info"></p>
+
+      <!-- penjelasan singkat / rekomendasi -->
+      <p id="note-line" class="note-info"></p>
+    </div>
+  </section>
+
+  <!-- Card Info & Metrics -->
+  <section class="card">
+    <h2>Informasi Model</h2>
+    <p class="subtitle">
+      Sistem ini menggunakan algoritma <strong>Random Forest</strong> dan <strong>Naïve Bayes</strong> untuk memprediksi
+      gangguan infrastruktur jaringan berdasarkan parameter: bandwidth, latency, packet loss, dan uptime.
+    </p>
+
+    {% if metrics %}
+    <div class="metrics">
+      <h3>Ringkasan Kinerja Model</h3>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <h4>Random Forest</h4>
+          <ul>
+            <li>Akurasi: {{ "%.3f"|format(metrics["rf"]["accuracy"]) }}</li>
+            <li>Presisi: {{ "%.3f"|format(metrics["rf"]["precision"]) }}</li>
+            <li>Recall: {{ "%.3f"|format(metrics["rf"]["recall"]) }}</li>
+            <li>F1-score: {{ "%.3f"|format(metrics["rf"]["f1"]) }}</li>
+            {% if metrics["rf"].get("roc_auc") is not none %}
+            <li>ROC-AUC: {{ "%.3f"|format(metrics["rf"]["roc_auc"]) }}</li>
+            {% endif %}
+            {% if metrics["rf"].get("pr_auc") is not none %}
+            <li>PR-AUC: {{ "%.3f"|format(metrics["rf"]["pr_auc"]) }}</li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="metric-box">
+          <h4>Naïve Bayes</h4>
+          <ul>
+            <li>Akurasi: {{ "%.3f"|format(metrics["nb"]["accuracy"]) }}</li>
+            <li>Presisi: {{ "%.3f"|format(metrics["nb"]["precision"]) }}</li>
+            <li>Recall: {{ "%.3f"|format(metrics["nb"]["recall"]) }}</li>
+            <li>F1-score: {{ "%.3f"|format(metrics["nb"]["f1"]) }}</li>
+            {% if metrics["nb"].get("roc_auc") is not none %}
+            <li>ROC-AUC: {{ "%.3f"|format(metrics["nb"]["roc_auc"]) }}</li>
+            {% endif %}
+            {% if metrics["nb"].get("pr_auc") is not none %}
+            <li>PR-AUC: {{ "%.3f"|format(metrics["nb"]["pr_auc"]) }}</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <p class="note">
+        Nilai Angka di atas berasal dari proses training & evaluasi pada dataset yang digunakan dalam penelitian.
+      </p>
+
+      <!-- Visualisasi Evaluasi Model -->
+      <div class="metrics" style="margin-top: 1.2rem;">
+        <h3>Visualisasi Evaluasi Model</h3>
+
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <h4>Confusion Matrix – Random Forest</h4>
+            <img src="{{ url_for('static', filename='rf_confusion.png') }}"
+                 alt="RF Confusion Matrix"
+                 class="metric-chart"
+                 style="max-width:100%;border-radius:0.5rem;">
+          </div>
+          <div class="metric-box">
+            <h4>Confusion Matrix – Naïve Bayes</h4>
+            <img src="{{ url_for('static', filename='nb_confusion.png') }}"
+                 alt="NB Confusion Matrix"
+                 class="metric-chart"
+                 style="max-width:100%;border-radius:0.5rem;">
+          </div>
+        </div>
+
+        <div class="metric-box" style="margin-top:1rem;">
+          <h4>Perbandingan Metrik RF vs NB</h4>
+          <img src="{{ url_for('static', filename='metrics_compare.png') }}"
+               alt="Perbandingan Metrik RF vs NB"
+               class="metric-chart"
+               style="max-width:100%;border-radius:0.5rem;">
+        </div>
+
+        <!-- Tambahan: ROC & PR curve -->
+        <div class="metrics-grid" style="margin-top:1rem;">
+          <div class="metric-box">
+            <h4>Kurva ROC – RF vs NB</h4>
+            <img src="{{ url_for('static', filename='roc_compare.png') }}"
+                 alt="ROC Curve RF vs NB"
+                 class="metric-chart"
+                 style="max-width:100%;border-radius:0.5rem;">
+          </div>
+          <div class="metric-box">
+            <h4>Kurva Precision–Recall – RF vs NB</h4>
+            <img src="{{ url_for('static', filename='pr_compare.png') }}"
+                 alt="Precision-Recall Curve RF vs NB"
+                 class="metric-chart"
+                 style="max-width:100%;border-radius:0.5rem;">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <p class="note">
+      Metrics model belum tersedia. Jalankan <code>train_models.py</code> untuk menghasilkan file <code>metrics_summary.json</code>.
+    </p>
+    {% endif %}
+  </section>
+</div>
+
+<script>
+  const form = document.getElementById("predict-form");
+  const resultBox = document.getElementById("result");
+  const statusLine = document.getElementById("status-line");
+  const modelLine = document.getElementById("model-line");
+  const confidenceLine = document.getElementById("confidence-line");
+  const noteLine = document.getElementById("note-line");
+
+  function roundPct(v) {
+    return Math.round(v * 1000) / 10; // 1 angka di belakang koma
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      bandwidth: parseFloat(document.getElementById("bandwidth").value),
+      latency: parseFloat(document.getElementById("latency").value),
+      packet_loss: parseFloat(document.getElementById("packet_loss").value),
+      uptime: parseFloat(document.getElementById("uptime").value),
+      model: document.getElementById("model").value
+    };
+
+    // tampilan awal saat loading
+    resultBox.classList.remove("hidden");
+    statusLine.textContent = "Memproses prediksi...";
+    statusLine.className = "status-line";
+    modelLine.textContent = "";
+    confidenceLine.textContent = "";
+    noteLine.textContent = "";
+
+    try {
+      const res = await fetch("/api/predict", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        statusLine.textContent = "Terjadi kesalahan saat memproses prediksi.";
+        statusLine.className = "status-line status-bad";
+        noteLine.textContent = data.error || "Silakan coba lagi.";
+        return;
+      }
+
+      const pred = (data.prediction || "").toLowerCase();
+      const modelUsed = data.model_used || "-";
+
+      // tampilkan model
+      modelLine.textContent = `Model yang digunakan : ${modelUsed}`;
+
+      // hitung confidence dari probabilitas (kalau ada)
+      let confPercent = null;
+      if (data.probabilities) {
+        const probs = data.probabilities;
+        const lowerProbs = {};
+        Object.keys(probs).forEach(k => {
+          lowerProbs[k.toLowerCase()] = probs[k];
+        });
+
+        let p = lowerProbs[pred];
+        if (p === undefined) {
+          // kalau key tidak persis sama, ambil probabilitas terbesar
+          p = Math.max(...Object.values(lowerProbs));
+        }
+        confPercent = roundPct(p);
+        confidenceLine.textContent = `Tingkat keyakinan model : ${confPercent}%`;
+      } else {
+        confidenceLine.textContent = "";
+      }
+
+      // peringatan status + warna + penjelasan
+      if (pred === "gangguan") {
+        statusLine.textContent = "Status jaringan : GANGGUAN";
+        statusLine.className = "status-line status-bad";
+
+        if (confPercent !== null && confPercent >= 80) {
+          noteLine.textContent = "Gangguan sangat mungkin terjadi. Disarankan segera cek perangkat jaringan, bandwidth, dan latency di segmen terkait.";
+        } else if (confPercent !== null && confPercent >= 60) {
+          noteLine.textContent = "Adanya indikasi gangguan pada jaringan. Pantau parameter jaringan dan lakukan pengecekan.";
+        } else {
+          noteLine.textContent = "Mendeteksi adanya kemungkinan gangguan, tetapi tingkat keyakinannya masih rendah. Bisa dijadikan peringatan awal dan tetap lakukan monitoring.";
+        }
+      } else {
+        // NORMAL
+        statusLine.textContent = "Status jaringan : NORMAL";
+
+        let statusClass = "status-line status-good"; // default hijau
+
+        if (confPercent !== null) {
+          if (confPercent >= 80) {
+            // Hijau: normal stabil
+            statusClass = "status-line status-good";
+            noteLine.textContent = "Kondisi jaringan cenderung stabil. Lanjutkan monitoring rutin dan pencatatan log.";
+          } else if (confPercent >= 60) {
+            // Kuning: normal tapi waspada (60–79%)
+            statusClass = "status-line status-warn";
+            noteLine.textContent = "Jaringan terdeteksi normal, namun tingkat keyakinan model berada pada level menengah. Disarankan tetap melakukan monitoring berkala.";
+          } else {
+            // Merah: model kurang yakin dengan kondisi normal (<60%)
+            statusClass = "status-line status-bad";
+            noteLine.textContent = "Jaringan terdeteksi normal, tetapi tingkat keyakinan model rendah. Jadikan sebagai peringatan awal dan lakukan pemantauan lebih intensif.";
+          }
+        } else {
+          // tidak ada info probabilitas
+          statusClass = "status-line status-good";
+          noteLine.textContent = "Jaringan terdeteksi normal berdasarkan parameter yang dimasukkan.";
+        }
+
+        statusLine.className = statusClass;
+      }
+
+      // Tambahan: penjelasan fitur (SHAP) kalau dikirim dari API
+      if (data.explanation) {
+        if (noteLine.textContent && noteLine.textContent.length > 0) {
+          noteLine.textContent += " ";
+        }
+        noteLine.textContent += "Fitur yang paling berpengaruh: " + data.explanation + ".";
+      }
+
+    } catch (err) {
+      statusLine.textContent = "Gagal menghubungi server.";
+      statusLine.className = "status-line status-bad";
+      noteLine.textContent = "Pastikan server Flask masih berjalan dan koneksi jaringan tidak bermasalah.";
+      console.error(err);
+    }
+  });
+</script>
+{% endblock %}

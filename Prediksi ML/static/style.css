@@ -1,0 +1,381 @@
+/* static/style.css */
+
+/* =================== */
+/*  THEME VARIABLES    */
+/* =================== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+  --card-bg: #0b1220;
+
+  /* 🔵 Aksen biru Diskominfo */
+  --accent: #0ea5e9;
+  --accent-soft: rgba(14, 165, 233, 0.15);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: #1f2937;
+  --danger: #f97373;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =================== */
+/*  HEADER & BRAND     */
+/* =================== */
+.header {
+  padding: 1.5rem 1.25rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Brand Logo (Diskominfo Blue) */
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4px;
+  box-shadow: inset 0 0 6px rgba(14, 165, 233, 0.25);
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.4));
+}
+
+.brand-text h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.brand-text p {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =================== */
+/*  LAYOUT & CARD      */
+/* =================== */
+.main-content {
+  flex: 1;
+  padding: 0 1.25rem 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.subtitle {
+  margin: 0 0 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* =================== */
+/*  FORM               */
+/* =================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+input,
+select {
+  background: #020617;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border-subtle);
+  padding: 0.55rem 0.7rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.45);
+}
+
+/* =================== */
+/*  BUTTON             */
+/* =================== */
+.btn-primary {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(14, 165, 233, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* =================== */
+/*  HASIL PREDIKSI     */
+/* =================== */
+.result {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  background: #020617;
+  border: 1px solid var(--border-subtle);
+}
+
+.result h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+/* Teks status hasil prediksi */
+.status-line {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* warna status */
+.status-good {
+  color: #22c55e;          /* hijau: normal stabil (>= 80%) */
+}
+
+.status-warn {
+  color: #eab308;          /* kuning: normal waspada (60–79%) */
+}
+
+.status-bad {
+  color: var(--danger);    /* merah/oranye: gangguan atau normal confidence rendah (<60%) */
+}
+
+/* info tambahan di hasil prediksi */
+.model-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.confidence-info {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.note-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+/* masih boleh dipakai kalau suatu saat butuh preformatted text */
+pre {
+  background: #020617;
+  padding: 0.7rem;
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =================== */
+/*  METRICS            */
+/* =================== */
+.metrics {
+  margin-top: 1rem;
+}
+
+.metrics-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Card grafik */
+.metric-box {
+  padding: 0.9rem;
+  border-radius: 0.8rem;
+  background: #020617;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  /* overflow: visible agar gambar yang di-zoom bisa keluar card */
+  overflow: visible;
+}
+
+.metric-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.metric-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.metric-box li {
+  margin-bottom: 0.15rem;
+}
+
+/* Gambar grafik – default */
+.metric-chart {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  cursor: zoom-in;
+  display: block;
+  margin: 0 auto;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease,
+    width 0.18s ease,
+    height 0.18s ease,
+    top 0.18s ease,
+    left 0.18s ease;
+  outline: none;
+}
+
+/* Hover kecil di dalam card (sedikit saja) */
+.metric-box:hover .metric-chart {
+  transform: scale(1.03);
+}
+
+/* Zoom besar: saat langsung hover di gambar -> jadikan overlay di tengah layar */
+.metric-chart:hover,
+.metric-chart:focus,
+.metric-chart:active {
+  position: fixed;
+  top: 8vh;             /* jarak dari atas layar */
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  width: 45vw;          /* hampir setengah lebar layar */
+  max-width: 720px;     /* batas maksimum piksel */
+  height: auto;
+  max-height: 80vh;
+  z-index: 999;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  cursor: zoom-out;
+  border-radius: 1rem;
+  filter: brightness(1.03);
+  background: #020617;
+}
+
+/* Mobile: kalau layar kecil, pakai hampir full width */
+@media (max-width: 640px) {
+  .metric-chart:hover,
+  .metric-chart:focus,
+  .metric-chart:active {
+    top: 6vh;
+    width: 92vw;
+    max-height: 88vh;
+  }
+}
+
+.note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* =================== */
+/*  FOOTER             */
+/* =================== */
+.footer {
+  padding: 1rem 1.25rem 1.2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* =================== */
+/*  RESPONSIVE         */
+/* =================== */
+@media (min-width: 800px) {
+  .main-content {
+    max-width: 1024px;
+    margin: 0 auto 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1.4fr 1.1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid .btn-primary {
+    grid-column: 1 / -1;
+    justify-self: flex-start;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
