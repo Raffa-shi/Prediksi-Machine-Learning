@@ -48,28 +48,13 @@ NumPy dipakai sebagai pondasi komputasi numerik:
 
 ---
 
-# Prediksi Machine Learning — Sistem Prediksi Jaringan (Beta)
+# Masih Belajar Guys
 
 Project ini adalah sistem **Machine Learning** yang fokus untuk melakukan **prediksi pada jaringan** (network prediction).  
 Saat ini project masih dalam tahap **BETA** dan masih terus dikembangkan, jadi beberapa fitur / hasil model kemungkinan masih belum final.
 
 > ⚠️ Status: **On Progress (Beta)**  
 > 🔥 Project ini terbuka untuk diskusi dan pengembangan bareng.
-
----
-
-## 📌 Tentang Project
-Tujuan utama project ini adalah membangun model Machine Learning yang bisa membantu melakukan prediksi terkait **jaringan**, misalnya:
-- pola koneksi
-- kemungkinan hubungan antar node
-- tren/perubahan pada struktur jaringan
-- analisis dan prediksi berbasis data jaringan
-
-Project ini cocok buat eksplorasi konsep seperti:
-- data preprocessing untuk jaringan
-- training model prediksi
-- evaluasi performa model
-- eksperimen model dan tuning parameter
 
 ---
 
