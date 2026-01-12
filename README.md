@@ -1,4 +1,4 @@
-# 🧠 Prediksi Machine Learning — Sistem Prediksi Jaringan (Beta)
+# 🧠 Prediksi Machine Learning - Sistem Prediksi Jaringan (Beta)
 
 ## 🧩 Tech Stack yang Digunakan
 
@@ -36,15 +36,72 @@ Pandas dipakai untuk:
 - baca dataset (CSV/Excel)
 - bersihin data (missing value, duplikat)
 - transform data jadi siap training
-- analisis cepat sebelum masuk ke model
+- analisis sebelum masuk ke model
 
-Karena project ini banyak bermain di data, pandas wajib banget.
+Karena project ini banyak bermain di data, jadi gua gunain pandas dan itu wajib banget.
 
 ### ✅ NumPy
 NumPy dipakai sebagai pondasi komputasi numerik:
 - operasi array/matrix cepat
 - dukungan input untuk training model
 - bantu hitungan matematis/statistik saat preprocessing atau evaluasi
+
+---
+
+# Prediksi Machine Learning — Sistem Prediksi Jaringan (Beta)
+
+Project ini adalah sistem **Machine Learning** yang fokus untuk melakukan **prediksi pada jaringan** (network prediction).  
+Saat ini project masih dalam tahap **BETA** dan masih terus dikembangkan, jadi beberapa fitur / hasil model kemungkinan masih belum final.
+
+> ⚠️ Status: **On Progress (Beta)**  
+> 🔥 Project ini terbuka untuk diskusi dan pengembangan bareng.
+
+---
+
+## 📌 Tentang Project
+Tujuan utama project ini adalah membangun model Machine Learning yang bisa membantu melakukan prediksi terkait **jaringan**, misalnya:
+- pola koneksi
+- kemungkinan hubungan antar node
+- tren/perubahan pada struktur jaringan
+- analisis dan prediksi berbasis data jaringan
+
+Project ini cocok buat eksplorasi konsep seperti:
+- data preprocessing untuk jaringan
+- training model prediksi
+- evaluasi performa model
+- eksperimen model dan tuning parameter
+
+---
+
+## 🎯 Tujuan
+✅ Membuat sistem prediksi berbasis Machine Learning pada data jaringan  
+✅ Menyediakan eksperimen awal & baseline model  
+✅ Menjadi project pembelajaran sekaligus riset kecil untuk prediksi jaringan  
+✅ Open kolaborasi, diskusi, dan improvement bareng
+
+---
+
+## 🧪 Progress Saat Ini
+Beberapa hal yang sedang/akan dikerjakan:
+- [x] Setup project dan notebook utama
+- [x] Eksplorasi data awal
+- [ ] Peningkatan preprocessing & feature engineering
+- [ ] Training model yang lebih stabil
+- [ ] Evaluasi metrik dan validasi hasil
+- [ ] Dokumentasi dataset & eksperimen
+- [ ] Versi release pertama (stable)
+
+---
+
+## 🚀 Cara Jalanin Datanya
+1. Clone repository:
+   ```bash
+   git clone https://github.com/Raffa-shi/Prediksi-Machine-Learning.git
+   cd Prediksi-Machine-Learning
+Install Manual di Terminal
+pip install -r requirements.txt
+pip install numpy pandas scikit-learn matplotlib jupyter
+jupyter notebook
 
 ---
 
