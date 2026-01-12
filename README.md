@@ -48,9 +48,8 @@ NumPy dipakai sebagai pondasi komputasi numerik:
 
 ---
 
-# Masih Belajar Guys
-
-Project ini adalah sistem **Machine Learning** yang fokus untuk melakukan **prediksi pada jaringan** (network prediction).  
+# Masih Belajar 
+ 
 Saat ini project masih dalam tahap **BETA** dan masih terus dikembangkan, jadi beberapa fitur / hasil model kemungkinan masih belum final.
 
 > ⚠️ Status: **On Progress (Beta)**  
@@ -84,10 +83,10 @@ Beberapa hal yang sedang/akan dikerjakan:
    git clone https://github.com/Raffa-shi/Prediksi-Machine-Learning.git
    cd Prediksi-Machine-Learning
 Install Manual di Terminal
-pip install -r requirements.txt
-pip install numpy pandas scikit-learn matplotlib jupyter
-jupyter notebook
+- pip install -r requirements.txt
+- pip install numpy pandas scikit-learn matplotlib jupyter
+- jupyter notebook
 
 ---
 
-> Nore: karena project ini masih tahap **progress**, tech stack masih bisa bertambah (misalnya Matplotlib untuk visualisasi lebih lengkap atau library khusus untuk network/graph).
+> Note: karena project ini masih tahap **progress**, tech stack masih bisa bertambah (misalnya Seaborn untuk visualisasi lebih instant atau library khusus untuk network/graph).
