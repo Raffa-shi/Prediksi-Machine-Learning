@@ -60,7 +60,7 @@ def generate_row():
 
 def main():
     path = os.path.join(os.path.dirname(__file__), FILENAME)
-    n_rows = 1000
+    n_rows = 7000
 
     with open(path, "w", newline="") as f:
         writer = csv.writer(f)
