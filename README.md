@@ -1,6 +1,4 @@
-# 🧠 Prediksi Machine Learning - Sistem Prediksi Jaringan (Beta)
-
-## 🧩 Tech Stack yang Digunakan
+#  Prediksi Machine Learning - Sistem Prediksi Jaringan (Beta)
 
 Di project ini gue pakai beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
 
@@ -57,34 +55,14 @@ Saat ini project masih dalam tahap **BETA** dan masih terus dikembangkan, jadi b
 
 ---
 
-## 🎯 Tujuan
-✅ Membuat sistem prediksi berbasis Machine Learning pada data jaringan  
-✅ Menyediakan eksperimen awal & baseline model  
-✅ Menjadi project pembelajaran sekaligus riset kecil untuk prediksi jaringan  
-✅ Open kolaborasi, diskusi, dan improvement bareng
-
----
-
-## 🧪 Progress Saat Ini
-Beberapa hal yang sedang/akan dikerjakan:
-- [x] Setup project dan notebook utama
-- [x] Eksplorasi data awal
-- [ ] Peningkatan preprocessing & feature engineering
-- [ ] Training model yang lebih stabil
-- [ ] Evaluasi metrik dan validasi hasil
-- [ ] Dokumentasi dataset & eksperimen
-- [ ] Versi release pertama (stable)
-
----
-
 ## 🚀 Cara Jalanin Datanya
 1. Clone repository:
    ```bash
    git clone https://github.com/Raffa-shi/Prediksi-Machine-Learning.git
    cd Prediksi-Machine-Learning
 Install Manual di Terminal
-- pip install -r requirements.txt
-- pip install numpy pandas scikit-learn matplotlib jupyter
+- py pip install -r requirements.txt
+- py pip install numpy pandas scikit-learn matplotlib jupyter
 - jupyter notebook
 
 ---
