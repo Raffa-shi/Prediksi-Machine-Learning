@@ -12,24 +12,30 @@
   <div class="page-wrapper">
 
     <!-- HEADER -->
-    <header class="header">
-      <div class="brand">
-
-        <!-- Brand Logo (PNG bulat) -->
-        <div class="brand-logo">
-          <img 
-            src="{{ url_for('static', filename='logo_diskominfo.png') }}" 
-            alt="Logo Diskominfo Kota Tangerang Selatan">
-        </div>
-
-        <!-- Brand Text -->
-        <div class="brand-text">
-          <h1>Diskominfo Tangsel Predictor</h1>
-          <p>Berbasis Machine Learning (Random Forest &amp; Naïve Bayes)</p>
-        </div>
-
+    <header class="topbar" id="home">
+  <div class="topbar-inner">
+    <div class="brandx">
+      <div class="brandx-logo">
+        <i class="fa-solid fa-tower-cell"></i>
       </div>
-    </header>
+      <div class="brandx-text">
+        <h1>Diskominfo Tangsel Predictor</h1>
+        <p>Prediksi Gangguan Jaringan • Random Forest & Naive Bayes</p>
+      </div>
+    </div>
+
+    <nav class="navx">
+      <a href="#tech"><i class="fa-solid fa-layer-group"></i> Tech Stack</a>
+      <a href="#training"><i class="fa-solid fa-chart-line"></i> Training</a>
+      <a href="#predict"><i class="fa-solid fa-wand-magic-sparkles"></i> Prediksi</a>
+      <a href="#insight"><i class="fa-solid fa-circle-info"></i> Insight</a>
+    </nav>
+
+    <a class="nav-cta" href="#predict">
+      <i class="fa-solid fa-bolt"></i> Mulai Prediksi
+    </a>
+  </div>
+</header>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -37,9 +43,30 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <span>© {{ 2025 }} Sistem Prediksi Gangguan Jaringan kominfo Tangerang Selatan Machine Learning dengan Flask Python</span>
-    </footer>
+   <footer class="footerX">
+  <div class="footerX-inner">
+    <div class="footLeft">
+      <div class="footLogo">
+        <i class="fa-solid fa-tower-broadcast"></i>
+      </div>
+      <div>
+        <h3>Diskominfo Tangsel Predictor</h3>
+        <p>Web prediksi gangguan jaringan berbasis Machine Learning (RF & NB).</p>
+      </div>
+    </div>
+
+    <div class="footRight">
+      <a href="#home">Home</a>
+      <a href="#tech">Tech</a>
+      <a href="#training">Training</a>
+      <a href="#predict">Prediksi</a>
+    </div>
+  </div>
+
+  <div class="footerBottom">
+    <p>© {{ 2026 }} • Dibuat untuk kebutuhan monitoring & prediksi jaringan.</p>
+  </div>
+</footer>
 
   </div>
 </body>
