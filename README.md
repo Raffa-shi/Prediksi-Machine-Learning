@@ -1,6 +1,6 @@
-#  Prediksi Machine Learning - Sistem Prediksi Jaringan (Beta)
+#  Prediksi Machine Learning - Sistem Prediksi Jaringan
 
-Di project ini gue pakai beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
+Di project ini gue make beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
 
 <p align="left">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
