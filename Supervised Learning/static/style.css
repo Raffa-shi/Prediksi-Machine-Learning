@@ -1,7 +1,5 @@
 /* ===========================
    DISKOMINFO TANGSEL PREDICTOR
-   THEME: MERAH-PUTIH + CARD MERAH
-   OUTPUT PREDIKSI: PUTIH
 =========================== */
 
 /* ========= ROOT ========= */
@@ -67,7 +65,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ===========================
-   NAVBAR (sticky)
+   NAVBAR 
 =========================== */
 .topbar {
   position: sticky;
