@@ -1,0 +1,28 @@
+{
+  "rf": {
+    "accuracy": 0.6835,
+    "precision": 0.7202312138728324,
+    "recall": 0.8931899641577061,
+    "f1": 0.79744,
+    "roc_auc": 0.5905542225776831,
+    "pr_auc": 0.3916087185698119
+  },
+  "nb": {
+    "accuracy": 0.6965,
+    "precision": 0.7052083333333333,
+    "recall": 0.9706093189964158,
+    "f1": 0.816892911010558,
+    "roc_auc": 0.6342924849669718,
+    "pr_auc": 0.4104293079649162
+  },
+  "label_classes": [
+    "gangguan",
+    "normal"
+  ],
+  "feature_names": [
+    "bandwidth",
+    "latency",
+    "packet_loss",
+    "uptime"
+  ]
+}
