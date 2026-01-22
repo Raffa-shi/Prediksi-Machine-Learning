@@ -6,7 +6,7 @@ Di project ini gue make beberapa teknologi utama untuk membangun sistem **predik
   <img src="https://raw.githubusercontent.com/github/explore/main/topics/flask/flask.png" width="90" />
 </p>
 
-<h1 align="center">(Machine Learning)</h1>
+<h1 align="center">Machine Learning</h1>
 
 <p align="center">
   Web Flask untuk prediksi status jaringan <b>(normal / gangguan)</b> menggunakan model Machine Learning <b>Random Forest</b> dan <b>Naive Bayes</b>.
@@ -74,6 +74,7 @@ Di project ini gue make beberapa teknologi utama untuk membangun sistem **predik
 └── templates/
     ├── base.html
     └── index.html
+---
 
 ### ✅ Python
 Python jadi bahasa utama karena paling fleksibel buat dunia data dan Machine Learning. Hampir semua library ML dan pengolahan data support Python, jadi lebih gampang untuk eksperimen dan scaling project.
