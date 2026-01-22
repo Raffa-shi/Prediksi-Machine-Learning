@@ -110,14 +110,16 @@ Install Manual di Terminal
 ---
 ##  🌐 buat Enviroment baru
 
-python -m venv venv
-venv\Scripts\activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+- python -m venv venv
+- venv\Scripts\activate
+- python -m pip install --upgrade pip
+- pip install -r requirements.txt
 
 jalankan train models
 
-python train_models.py
-python app.py
+- python train_models.py
+
+Jalankan Flask
+- python app.py
 
 > Note: karena project ini masih tahap **progress**, tech stack masih bisa bertambah (misalnya Seaborn untuk visualisasi lebih instant atau library khusus untuk network/graph).
