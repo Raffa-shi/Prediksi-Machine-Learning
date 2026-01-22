@@ -52,30 +52,6 @@ Di project ini gue make beberapa teknologi utama untuk membangun sistem **predik
 
 ---
 
-## 📂 Struktur Project
-```bash
-.
-├── app.py
-├── train_models.py
-├── network_data.csv
-├── requirements.txt
-├── metrics_summary.json
-├── rf_model.pkl
-├── nb_model.pkl
-├── scaler.pkl
-├── label_encoder.pkl
-├── static/
-│   ├── rf_confusion.png
-│   ├── nb_confusion.png
-│   ├── metrics_compare.png
-│   ├── roc_compare.png
-│   ├── pr_compare.png
-│   └── ...
-└── templates/
-    ├── base.html
-    └── index.html
----
-
 ### ✅ Python
 Python jadi bahasa utama karena paling fleksibel buat dunia data dan Machine Learning. Hampir semua library ML dan pengolahan data support Python, jadi lebih gampang untuk eksperimen dan scaling project.
 
