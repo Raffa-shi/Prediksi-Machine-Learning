@@ -2,13 +2,78 @@
 
 Di project ini gue make beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/flask/flask.png" width="90" />
 </p>
+
+<h1 align="center">(Machine Learning)</h1>
+
+<p align="center">
+  Web Flask untuk prediksi status jaringan <b>(normal / gangguan)</b> menggunakan model Machine Learning <b>Random Forest</b> dan <b>Naive Bayes</b>.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Flask-Web%20App-black?logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikitlearn&logoColor=white" />
+  <img src="https://img.shields.io/badge/Pandas-Data%20Processing-purple?logo=pandas&logoColor=white" />
+  <img src="https://img.shields.io/badge/Numpy-Numerical%20Computing-blue?logo=numpy&logoColor=white" />
+  <img src="https://img.shields.io/badge/Matplotlib-Visualization-green" />
+  <img src="https://img.shields.io/badge/Seaborn-Visualization-0aa6c2" />
+</p>
+
+---
+
+## 🚀 Fitur Utama
+- Input parameter jaringan:
+  - bandwidth
+  - latency
+  - packet loss
+  - uptime
+- Pilih algoritma:
+  - Random Forest
+  - Naive Bayes
+- Output:
+  - status prediksi: **normal / gangguan**
+  - probabilitas prediksi
+- Menampilkan ringkasan metrik evaluasi model pada dashboard
+
+---
+
+## 🧠 Tech Stack
+| Komponen | Teknologi |
+|---------|-----------|
+| Backend | Flask |
+| Machine Learning | scikit-learn |
+| Data Processing | Pandas, NumPy |
+| Model Serialization | Joblib |
+| Visualization | Matplotlib, Seaborn |
+| Frontend | HTML, CSS (Tailwind optional) |
+
+---
+
+## 📂 Struktur Project
+```bash
+.
+├── app.py
+├── train_models.py
+├── network_data.csv
+├── requirements.txt
+├── metrics_summary.json
+├── rf_model.pkl
+├── nb_model.pkl
+├── scaler.pkl
+├── label_encoder.pkl
+├── static/
+│   ├── rf_confusion.png
+│   ├── nb_confusion.png
+│   ├── metrics_compare.png
+│   ├── roc_compare.png
+│   ├── pr_compare.png
+│   └── ...
+└── templates/
+    ├── base.html
+    └── index.html
 
 ### ✅ Python
 Python jadi bahasa utama karena paling fleksibel buat dunia data dan Machine Learning. Hampir semua library ML dan pengolahan data support Python, jadi lebih gampang untuk eksperimen dan scaling project.
@@ -66,5 +131,16 @@ Install Manual di Terminal
 - jupyter notebook
 
 ---
+##  🌐 buat Enviroment baru
+
+python -m venv venv
+venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+jalankan train models
+
+python train_models.py
+python app.py
 
 > Note: karena project ini masih tahap **progress**, tech stack masih bisa bertambah (misalnya Seaborn untuk visualisasi lebih instant atau library khusus untuk network/graph).
