@@ -1,4 +1,4 @@
-#  Prediksi Machine Learning - Sistem Prediksi Jaringan
+#  Supervised Learning - Sistem Prediksi Jaringan
 
 Di project ini gue make beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
 
