@@ -1,4 +1,4 @@
-#  Prediksi Machine Learning - Sistem Prediksi Jaringan
+#  Supervised Learning - Sistem Prediksi Jaringan
 
 Di project ini gue make beberapa teknologi utama untuk membangun sistem **prediksi jaringan berbasis Machine Learning**. Pemilihan stack ini bukan asal pakai, tapi karena sesuai kebutuhan training model, analisis data, dan proses eksperimen.
 
@@ -40,7 +40,7 @@ Di project ini gue make beberapa teknologi utama untuk membangun sistem **predik
 
 ---
 
-## 🧠 Tech Stack
+## 🔥 Tech Stack
 | Komponen | Teknologi |
 |---------|-----------|
 | Backend | Flask |
@@ -52,10 +52,10 @@ Di project ini gue make beberapa teknologi utama untuk membangun sistem **predik
 
 ---
 
-### ✅ Python
+### <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 Python jadi bahasa utama karena paling fleksibel buat dunia data dan Machine Learning. Hampir semua library ML dan pengolahan data support Python, jadi lebih gampang untuk eksperimen dan scaling project.
 
-### ✅ Jupyter Notebook
+### <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"/>
 Gue pakai Jupyter Notebook supaya proses development lebih enak:
 - bisa jalanin kode bertahap
 - gampang analisis output
@@ -64,14 +64,14 @@ Gue pakai Jupyter Notebook supaya proses development lebih enak:
 
 Notebook juga membantu untuk tracking progress, apalagi project ini masih **beta** dan banyak trial-error.
 
-### ✅ Scikit-learn
+###  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
 Scikit-learn dipakai sebagai core library untuk Machine Learning karena:
 - punya banyak algoritma yang stabil (baseline model)
 - preprocessing lengkap
 - evaluasi model (accuracy, precision, recall, dll) gampang dipakai
 - cocok buat bikin model prediksi dengan workflow yang rapi
 
-### ✅ Pandas
+### <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
 Pandas dipakai untuk:
 - baca dataset (CSV/Excel)
 - bersihin data (missing value, duplikat)
@@ -80,7 +80,7 @@ Pandas dipakai untuk:
 
 Karena project ini banyak bermain di data, jadi gua gunain pandas dan itu wajib banget.
 
-### ✅ NumPy
+### <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
 NumPy dipakai sebagai pondasi komputasi numerik:
 - operasi array/matrix cepat
 - dukungan input untuk training model
