@@ -111,9 +111,11 @@ Install Manual di Terminal
 ##  🌐 buat Enviroment baru
 
 - python -m venv venv
-- venv\Scripts\activate
+- Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+- .\venv\Scripts\activate
 - python -m pip install --upgrade pip
 - pip install -r requirements.txt
+- Python: Select Interpreter (ctrl + shift + p) select interpreter local venv 
 
 jalankan train models
 
