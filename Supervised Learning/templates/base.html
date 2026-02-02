@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Raffa Memprediksi{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo_diskominfo.png') }}">
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="topbar" id="home">
+  <div class="topbar-inner">
+    <div class="brandx">
+      <div class="brandx-logo">
+        <i class="fa-solid fa-tower-cell"></i>
+      </div>
+      <div class="brandx-text">
+        <h1>Diskominfo Tangsel Predictor</h1>
+        <p>Prediksi Gangguan Jaringan • Random Forest & Naive Bayes</p>
+      </div>
+    </div>
+
+    <nav class="navx">
+      <a href="#tech"><i class="fa-solid fa-layer-group"></i> Tech Stack</a>
+      <a href="#training"><i class="fa-solid fa-chart-line"></i> Training</a>
+      <a href="#predict"><i class="fa-solid fa-wand-magic-sparkles"></i> Prediksi</a>
+      <a href="#insight"><i class="fa-solid fa-circle-info"></i> Insight</a>
+    </nav>
+
+    <a class="nav-cta" href="#predict">
+      <i class="fa-solid fa-bolt"></i> Mulai Prediksi
+    </a>
+  </div>
+</header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+
+ <!-- FOOTER -->
+<footer class="footerX footerRed" id="footer">
+  <div class="footerRed-inner">
+
+    <!-- ABOUT -->
+    <div class="footCol aboutCol">
+      <div class="footLogoLarge">
+        <i class="fa-solid fa-tower-broadcast"></i>
+      </div>
+
+      <div class="aboutText">
+        <h3>Diskominfo Tangerang Selatan</h3>
+        <p class="slogan">Prediksi Jaringan, Sistem Monitoring.</p>
+
+        <p class="footSmall">
+          Dashboard prediksi gangguan jaringan berbasis Machine Learning berdasarkan algoritma
+          (Random Forest & Naïve Bayes) untuk kebutuhan monitoring operasional.
+        </p>
+      </div>
+    </div>
+
+    <!-- KONTAK -->
+    <div class="footCol contactCol">
+      <h4><i class="fa-solid fa-address-card"></i> Informasi Kontak</h4>
+
+      <ul class="contactList">
+        <li>
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Alamat</strong>
+            <div class="small">
+              Diskominfo Tangerang Selatan (Jl. Maruga Raya No.1 Gedung 1 Lantai 6, Serua, Kec. Ciputat,
+              Kota Tangerang Selatan, Banten 15414)
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <strong>Telepon</strong>
+            <div class="small">(+62) 812-3456-7890</div>
+          </div>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <div class="small">diskominfo@tangerangselatankota.go.id</div>
+          </div>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Jam Operasi</strong>
+            <div class="small">Senin – Jumat, 08:00 – 16:00</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="footSocial">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- NAVIGASI -->
+    <div class="footCol linksCol">
+      <h4><i class="fa-solid fa-link"></i> Navigasi</h4>
+
+      <div class="miniLinks">
+        <a href="#tech"><i class="fa-solid fa-layer-group"></i> Tech Stack</a>
+        <a href="#predict"><i class="fa-solid fa-wand-magic-sparkles"></i> Prediksi</a>
+        <a href="#training"><i class="fa-solid fa-chart-line"></i> Training</a>
+        <a href="#insight"><i class="fa-solid fa-circle-info"></i> Insight</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT CENTER -->
+  <div class="footerBottom footerBottomCenter">
+    <p>© {{ 2026 }} • Diskominfo Tangerang Selatan • All rights reserved.</p>
+  </div>
+
+  <!-- Back to top button -->
+  <button id="backTop" class="backTop backTopFooter" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+</footer>
+
+<script>
+  const backTopBtn = document.getElementById('backTop');
+  backTopBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+
+</body>
+</html>

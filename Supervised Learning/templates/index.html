@@ -1,0 +1,695 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard Prediksi{% endblock %}
+
+{% block content %}
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- ============ HERO ============ -->
+<section class="heroX">
+  <div class="heroX-inner">
+
+    <div class="heroX-left">
+      <div class="heroX-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        Sistem Monitoring & Prediksi Gangguan
+      </div>
+
+      <h2 class="heroX-title">
+        Dashboard Prediksi Gangguan Jaringan
+      </h2>
+
+      <p class="heroX-desc">
+        Website ini membantu tim monitoring untuk memprediksi status jaringan
+        <strong>Normal</strong> atau <strong>Gangguan</strong> berdasarkan parameter teknis
+        (bandwidth, latency, packet loss, uptime).
+      </p>
+
+      <div class="heroX-stats">
+        <div class="statX">
+          <div class="statX-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <div class="statX-value">4</div>
+            <div class="statX-label">Parameter Input</div>
+          </div>
+        </div>
+
+        <div class="statX">
+          <div class="statX-icon"><i class="fa-solid fa-brain"></i></div>
+          <div>
+            <div class="statX-value">2</div>
+            <div class="statX-label">Model Machine Learning</div>
+          </div>
+        </div>
+
+        <div class="statX">
+          <div class="statX-icon"><i class="fa-solid fa-gauge-high"></i></div>
+          <div>
+            <div class="statX-value">&lt; 1s</div>
+            <div class="statX-label">Prediksi Real-Time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroX-actions">
+        <a class="btnX primary" href="#predict">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Prediksi Sekarang
+        </a>
+        <a class="btnX ghost" href="#training">
+          <i class="fa-solid fa-chart-line"></i>
+          Lihat Evaluasi Model
+        </a>
+      </div>
+    </div>
+
+    <div class="heroX-right">
+      <div class="heroX-panel">
+        <h3><i class="fa-solid fa-diagram-project"></i> Flow Sistem</h3>
+
+        <div class="flowX">
+          <div class="flowStep">
+            <span class="flowDot"></span>
+            <div>
+              <h4>Input Parameter</h4>
+              <p>Bandwidth, Latency, Packet Loss, Uptime</p>
+            </div>
+          </div>
+
+          <div class="flowStep">
+            <span class="flowDot"></span>
+            <div>
+              <h4>Model Machine Learning</h4>
+              <p>Random Forest / Naive Bayes</p>
+            </div>
+          </div>
+
+          <div class="flowStep">
+            <span class="flowDot"></span>
+            <div>
+              <h4>Output Prediksi</h4>
+              <p>Status jaringan + confidence + rekomendasi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroX-note">
+          <i class="fa-solid fa-circle-check"></i>
+          Dashboard sudah mendukung visualisasi hasil training.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="sectionX" id="tech">
+  <div class="sectionHead">
+    <h2><i class="fa-solid fa-layer-group"></i> Tech Stack</h2>
+    <br>
+  </div>
+
+  <div class="gridTech">
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-brands fa-python"></i></div>
+      <h3>Python</h3>
+      <p>Bahasa utama untuk training & pipeline machine learning.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-flask"></i></div>
+      <h3>Flask</h3>
+      <p>Backend web & API untuk prediksi real-time.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-code"></i></div>
+      <h3>Scikit-Learn</h3>
+      <p>Training model, preprocessing, tuning, dan evaluasi.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-tree"></i></div>
+      <h3>Random Forest</h3>
+      <p>Model ensemble kuat untuk pola non-linear.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-chart-pie"></i></div>
+      <h3>Naive Bayes</h3>
+      <p>Model probabilistik cepat untuk klasifikasi.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-chart-simple"></i></div>
+      <h3>Matplotlib</h3>
+      <p>Visualisasi evaluasi model dan analisis hasil.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-palette"></i></div>
+      <h3>Seaborn</h3>
+      <p>Visualisasi statistik EDA & korelasi fitur.</p>
+    </div>
+
+    <div class="cardMini">
+      <div class="miniIcon"><i class="fa-solid fa-database"></i></div>
+      <h3>Joblib</h3>
+      <p>Menyimpan model, scaler, dan encoder (deploy).</p>
+    </div>
+  </div>
+
+  <!-- konten tambahan biar gak kosong -->
+  <div class="extraRow">
+    <div class="extraCard">
+      <h3><i class="fa-solid fa-circle-nodes"></i> Fokus Sistem</h3>
+      <p>
+        Sistem ini fokus pada prediksi gangguan berbasis 4 parameter inti yang umum dipakai dalam monitoring jaringan.
+      </p>
+      <div class="badgeRow">
+        <span class="badgeX">Bandwidth</span>
+        <span class="badgeX">Latency</span>
+        <span class="badgeX">Packet Loss</span>
+        <span class="badgeX">Uptime</span>
+      </div>
+    </div>
+
+    <div class="extraCard">
+      <h3><i class="fa-solid fa-user-gear"></i> Untuk Tim Monitoring</h3>
+      <p>
+        Output prediksi dibuat ringkas agar mudah dipakai sebagai <b>warning awal</b> sebelum gangguan meluas.
+      </p>
+      <ul class="miniList">
+        <li><i class="fa-solid fa-check"></i> Prediksi real-time via API</li>
+        <li><i class="fa-solid fa-check"></i> Confidence otomatis</li>
+        <li><i class="fa-solid fa-check"></i> Rekomendasi monitoring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREDIKSI ============ -->
+<section class="sectionX" id="predict">
+  <div class="sectionHead">
+    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Prediksi Status Jaringan</h2>
+    <br>
+  </div>
+
+  <div class="predictShell">
+
+    <!-- FORM INPUT -->
+    <div class="predictCard">
+      <div class="predictHead">
+        <h3><i class="fa-solid fa-pen-to-square"></i> Form Input Parameter</h3>
+        <p>Isi data sesuai hasil monitoring di lapangan.</p>
+      </div>
+
+      <form id="predict-form" class="predictForm">
+        <div class="fg">
+          <label for="bandwidth">Bandwidth (Mbps)</label>
+          <div class="iw">
+            <i class="fa-solid fa-wifi"></i>
+            <input type="number" step="0.01" id="bandwidth" name="bandwidth" placeholder="contoh: 50" required>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label for="latency">Latency (ms)</label>
+          <div class="iw">
+            <i class="fa-solid fa-stopwatch"></i>
+            <input type="number" step="0.01" id="latency" name="latency" placeholder="contoh: 120" required>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label for="packet_loss">Packet Loss (%)</label>
+          <div class="iw">
+            <i class="fa-solid fa-chart-column"></i>
+            <input type="number" step="0.01" id="packet_loss" name="packet_loss" placeholder="contoh: 1.5" required>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label for="uptime">Uptime (%)</label>
+          <div class="iw">
+            <i class="fa-solid fa-signal"></i>
+            <input type="number" step="0.01" id="uptime" name="uptime" placeholder="contoh: 97.5" required>
+          </div>
+        </div>
+
+        <!-- FIX DROPDOWN MODEL -->
+        <div class="fg">
+          <label for="model">Pilih Model</label>
+          <div class="selectWrapX">
+            <div class="selectIconX">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+
+            <select id="model" name="model" class="selectCleanX">
+              <option value="rf">Random Forest</option>
+              <option value="nb">Naive Bayes</option>
+            </select>
+
+            <div class="selectArrowX">
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+
+          <p class="helperX">
+            <i class="fa-solid fa-circle-info"></i>
+            Random Forest cocok untuk pola kompleks, Naive Bayes lebih cepat untuk klasifikasi probabilistik.
+          </p>
+        </div>
+
+        <button type="submit" class="btnBig">
+          <i class="fa-solid fa-bolt"></i> Prediksi
+        </button>
+      </form>
+
+      <!-- mini interactive -->
+      <div class="liveSummary">
+        <div class="liveHead">
+          <h4><i class="fa-solid fa-clipboard-check"></i> Ringkasan Input</h4>
+          <span class="chipSmall" id="chip-model">Model: RF</span>
+        </div>
+
+        <div class="liveGrid">
+          <div class="liveItem"><span>Bandwidth</span><b id="pv-bandwidth">-</b></div>
+          <div class="liveItem"><span>Latency</span><b id="pv-latency">-</b></div>
+          <div class="liveItem"><span>Packet Loss</span><b id="pv-loss">-</b></div>
+          <div class="liveItem"><span>Uptime</span><b id="pv-uptime">-</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTPUT -->
+    <div class="predictCard outputPred">
+      <div class="predictHead">
+        <h3><i class="fa-solid fa-square-poll-vertical"></i> Output Prediksi</h3>
+        <p>Hasil prediksi & rekomendasi monitoring.</p>
+      </div>
+
+      <div id="result" class="resultBox hidden" aria-live="polite">
+        <div class="resTitle">
+          <i class="fa-solid fa-circle-info"></i>
+          <h4>Hasil Prediksi</h4>
+        </div>
+
+        <p id="status-line" class="status-line"></p>
+        <p id="model-line" class="model-info"></p>
+        <p id="confidence-line" class="confidence-info"></p>
+        <p id="note-line" class="note-info"></p>
+
+        <div class="actionBox" id="actionBox">
+          <h4><i class="fa-solid fa-bolt"></i> Rekomendasi Monitoring</h4>
+          <ul id="actionList">
+            <li>Isi parameter dan jalankan prediksi.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tipsBox">
+        <h4><i class="fa-solid fa-lightbulb"></i> Tips Pengisian</h4>
+        <ul>
+          <li><b>Latency</b> tinggi + <b>packet loss</b> naik = indikasi gangguan.</li>
+          <li>Uptime rendah maka potensi instability atau drop layanan.</li>
+          <li>Bandwith rendah saat beban tinggi akan terjadi bottleneck.</li>
+        </ul>
+      </div>
+
+      <!-- card tambahan kecil -->
+      <div class="miniInfoCards">
+        <div class="miniInfoOne">
+          <i class="fa-solid fa-shield"></i>
+          <div>
+            <b>Monitoring</b>
+            <p>Gunakan hasil sebagai warning awal.</p>
+          </div>
+        </div>
+
+        <div class="miniInfoOne">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <div>
+            <b>Riwayat</b>
+            <p>Simpan log prediksi untuk analisis.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!--  TRAINING / EVALUATION -->
+<section class="sectionX" id="training">
+  <div class="sectionHead">
+    <h2><i class="fa-solid fa-chart-line"></i> Training & Evaluasi Model</h2>
+    <br>
+  </div>
+
+  {% if metrics %}
+  <div class="trainingGrid compactPerf">
+
+    <div class="perfCard">
+      <div class="perfHead">
+        <h3><i class="fa-solid fa-tree"></i> Random Forest</h3>
+        <span class="chip">Model 1</span>
+      </div>
+      <ul class="perfList">
+        <li><span>Akurasi</span><b>{{ "%.3f"|format(metrics["rf"]["accuracy"]) }}</b></li>
+        <li><span>Presisi</span><b>{{ "%.3f"|format(metrics["rf"]["precision"]) }}</b></li>
+        <li><span>Recall</span><b>{{ "%.3f"|format(metrics["rf"]["recall"]) }}</b></li>
+        <li><span>F1-score</span><b>{{ "%.3f"|format(metrics["rf"]["f1"]) }}</b></li>
+      </ul>
+    </div>
+
+    <div class="perfCard">
+      <div class="perfHead">
+        <h3><i class="fa-solid fa-chart-pie"></i> Naive Bayes</h3>
+        <span class="chip">Model 2</span>
+      </div>
+      <ul class="perfList">
+        <li><span>Akurasi</span><b>{{ "%.3f"|format(metrics["nb"]["accuracy"]) }}</b></li>
+        <li><span>Presisi</span><b>{{ "%.3f"|format(metrics["nb"]["precision"]) }}</b></li>
+        <li><span>Recall</span><b>{{ "%.3f"|format(metrics["nb"]["recall"]) }}</b></li>
+        <li><span>F1-score</span><b>{{ "%.3f"|format(metrics["nb"]["f1"]) }}</b></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- VISUALISASI SLOT -->
+  <div class="vizWrap compactViz">
+    <div class="vizTitle">
+      <h2><i class="fa-solid fa-image"></i> Visualisasi Evaluasi</h2>
+    </div>
+
+    <div class="vizGrid6">
+      <div class="vizCard">
+        <h4>Confusion Matrix – RF</h4>
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='rf_confusion.png') }}" alt="RF Confusion Matrix">
+      </div>
+
+      <div class="vizCard">
+        <h4>Confusion Matrix – NB</h4>
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='nb_confusion.png') }}" alt="NB Confusion Matrix">
+      </div>
+
+      <div class="vizCard">
+        <h4>Perbandingan Metrik</h4>
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='metrics_compare.png') }}" alt="Perbandingan Metrik">
+      </div>
+
+      <div class="vizCard">
+        <h4>ROC Curve</h4>
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='roc_compare.png') }}" alt="ROC Curve">
+      </div>
+
+      <div class="vizCard">
+        <h4>Precision–Recall</h4>
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='pr_compare.png') }}" alt="PR Curve">
+      </div>
+
+      <div class="vizCard">
+        <h4>Korelasi Fitur</h4>
+        <!-- Additional -->
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='correlation_heatmap.png') }}" alt="korelasi fitur">
+      </div>
+
+       <div class="vizCard">
+        <h4>Korelasi Fitur</h4>
+        <!-- Additional 1 -->
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='correlation_heatmap.png') }}" alt="korelasi fitur">
+      </div>
+
+       <div class="vizCard">
+        <h4>Korelasi Fitur</h4>
+        <!-- Additional 2 -->
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='correlation_heatmap.png') }}" alt="korelasi fitur">
+      </div>
+
+       <div class="vizCard">
+        <h4>Korelasi Fitur</h4>
+        <!-- Additional 3 -->
+        <img class="vizImg slotImg" src="{{ url_for('static', filename='correlation_heatmap.png') }}" alt="korelasi fitur">
+      </div>
+    </div>
+
+  </div>
+
+  {% else %}
+  <div class="emptyBox">
+    <h3><i class="fa-solid fa-triangle-exclamation"></i> Metrics Belum Tersedia</h3>
+    <p>
+      Jalankan <code>train_models.py</code> untuk menghasilkan file <code>metrics_summary.json</code>
+      dan gambar visualisasi di folder <code>static/</code>.
+    </p>
+  </div>
+  {% endif %}
+</section>
+
+<!-- INSIGHT  -->
+<section class="sectionX" id="insight">
+  <div class="sectionHead">
+    <h2><i class="fa-solid fa-circle-info"></i> Insight Monitoring Jaringan</h2>
+    <br>
+  </div>
+
+  <div class="insightGrid2">
+    <div class="insightCardX">
+      <h3><i class="fa-solid fa-triangle-exclamation"></i> Indikator Gangguan</h3>
+      <p>
+        Gangguan jaringan biasanya ditandai dengan kombinasi latency meningkat, packet loss naik,
+        dan throughput/bandwidth tidak stabil.
+      </p>
+      <div class="badgeRow">
+        <span class="badgeX">Latency</span>
+        <span class="badgeX">Packet Loss</span>
+        <span class="badgeX">Uptime</span>
+      </div>
+    </div>
+
+    <div class="insightCardX">
+      <h3><i class="fa-solid fa-list-check"></i> Kesimpulan Cepat</h3>
+      <p>Checklist sederhana untuk keputusan cepat tim monitoring.</p>
+      <div class="checkGrid">
+        <div class="checkItem"><i class="fa-solid fa-circle-check"></i> Latency ≤ 100ms</div>
+        <div class="checkItem"><i class="fa-solid fa-circle-check"></i> Packet Loss ≤ 2%</div>
+        <div class="checkItem"><i class="fa-solid fa-circle-check"></i> Uptime ≥ 95%</div>
+        <div class="checkItem"><i class="fa-solid fa-circle-check"></i> Bandwidth stabil</div>
+      </div>
+      <p class="helperX">
+        <i class="fa-solid fa-circle-info"></i>
+        Angka ini guideline umum monitoring, bukan mutlak.
+      </p>
+    </div>
+
+    <div class="insightCardX">
+      <h3><i class="fa-solid fa-shield"></i> Tujuan Sistem</h3>
+      <p>
+        Dashboard membantu deteksi dini agar tim teknis lebih cepat melakukan mitigasi sebelum gangguan meluas.
+      </p>
+      <div class="impactRow">
+        <div class="impactItem">
+          <i class="fa-solid fa-users"></i>
+          <div>
+            <b>Dampak ke Layanan</b>
+            <span>lebih terkendali</span>
+          </div>
+        </div>
+        <div class="impactItem">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <div>
+            <b>Mitigasi</b>
+            <span>lebih cepat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insightCardX">
+      <h3><i class="fa-solid fa-gear"></i> Pengembangan Lanjutan</h3>
+      <p>
+        Ke depannya sistem dapat ditingkatkan dengan integrasi log, grafik tren harian,
+        dan notifikasi otomatis.
+      </p>
+      <div class="badgeRow">
+        <span class="badgeX">Logs</span>
+        <span class="badgeX">Time-Series</span>
+        <span class="badgeX">Notifikasi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--PREDIKSI (API)-->
+<script>
+  const form = document.getElementById("predict-form");
+  const resultBox = document.getElementById("result");
+  const statusLine = document.getElementById("status-line");
+  const modelLine = document.getElementById("model-line");
+  const confidenceLine = document.getElementById("confidence-line");
+  const noteLine = document.getElementById("note-line");
+
+  // action
+  const actionBox = document.getElementById("actionBox");
+  const actionList = document.getElementById("actionList");
+
+  // preview
+  const pvBandwidth = document.getElementById("pv-bandwidth");
+  const pvLatency = document.getElementById("pv-latency");
+  const pvLoss = document.getElementById("pv-loss");
+  const pvUptime = document.getElementById("pv-uptime");
+  const chipModel = document.getElementById("chip-model");
+
+  const inBandwidth = document.getElementById("bandwidth");
+  const inLatency = document.getElementById("latency");
+  const inLoss = document.getElementById("packet_loss");
+  const inUptime = document.getElementById("uptime");
+  const inModel = document.getElementById("model");
+
+  function roundPct(v) {
+    return Math.round(v * 1000) / 10;
+  }
+
+  function updatePreview(){
+    pvBandwidth.textContent = inBandwidth.value ? (inBandwidth.value + " Mbps") : "-";
+    pvLatency.textContent = inLatency.value ? (inLatency.value + " ms") : "-";
+    pvLoss.textContent = inLoss.value ? (inLoss.value + " %") : "-";
+    pvUptime.textContent = inUptime.value ? (inUptime.value + " %") : "-";
+    chipModel.textContent = "Model: " + (inModel.value === "rf" ? "RF" : "NB");
+  }
+
+  [inBandwidth, inLatency, inLoss, inUptime, inModel].forEach(el => {
+    el.addEventListener("input", updatePreview);
+    el.addEventListener("change", updatePreview);
+  });
+
+  updatePreview();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      bandwidth: parseFloat(inBandwidth.value),
+      latency: parseFloat(inLatency.value),
+      packet_loss: parseFloat(inLoss.value),
+      uptime: parseFloat(inUptime.value),
+      model: inModel.value
+    };
+
+    resultBox.classList.remove("hidden");
+    statusLine.textContent = "Memproses prediksi...";
+    statusLine.className = "status-line";
+    modelLine.textContent = "";
+    confidenceLine.textContent = "";
+    noteLine.textContent = "";
+
+    if(actionList){
+      actionList.innerHTML = `<li>Menunggu hasil prediksi...</li>`;
+    }
+
+    try {
+      const res = await fetch("/api/predict", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        statusLine.textContent = "Terjadi kesalahan saat memproses prediksi.";
+        statusLine.className = "status-line status-bad";
+        noteLine.textContent = data.error || "Silakan coba lagi.";
+        return;
+      }
+
+      const pred = (data.prediction || "").toLowerCase();
+      const modelUsed = data.model_used || "-";
+      modelLine.textContent = `Model yang digunakan : ${modelUsed}`;
+
+      let confPercent = null;
+      if (data.probabilities) {
+        const probs = data.probabilities;
+        const lowerProbs = {};
+        Object.keys(probs).forEach(k => lowerProbs[k.toLowerCase()] = probs[k]);
+
+        let p = lowerProbs[pred];
+        if (p === undefined) p = Math.max(...Object.values(lowerProbs));
+        confPercent = roundPct(p);
+        confidenceLine.textContent = `Tingkat keyakinan model : ${confPercent}%`;
+      }
+
+      if (pred === "gangguan") {
+        statusLine.textContent = "Status jaringan : GANGGUAN";
+        statusLine.className = "status-line status-bad";
+
+        if (confPercent !== null && confPercent >= 80) {
+          noteLine.textContent = "Gangguan sangat mungkin terjadi. Disarankan segera cek perangkat jaringan, bandwidth, dan latency di segmen terkait.";
+        } else if (confPercent !== null && confPercent >= 60) {
+          noteLine.textContent = "Adanya indikasi gangguan pada jaringan. Pantau parameter jaringan dan lakukan pengecekan.";
+        } else {
+          noteLine.textContent = "Mendeteksi kemungkinan gangguan namun confidence masih rendah. Jadikan warning awal dan lakukan monitoring.";
+        }
+
+        if(actionList){
+          actionList.innerHTML = `
+            <li>Cek link/port yang berpotensi flapping.</li>
+            <li>Lakukan ping/traceroute untuk konfirmasi latency.</li>
+            <li>Cek congestion: bandwidth usage & traffic.</li>
+            <li>Ambil log sebelum/sesudah gangguan.</li>
+          `;
+        }
+      } else {
+        statusLine.textContent = "Status jaringan : NORMAL";
+
+        let statusClass = "status-line status-good";
+        if (confPercent !== null) {
+          if (confPercent >= 80) {
+            statusClass = "status-line status-good";
+            noteLine.textContent = "Kondisi jaringan cenderung stabil. Lanjutkan monitoring rutin dan pencatatan log.";
+          } else if (confPercent >= 60) {
+            statusClass = "status-line status-warn";
+            noteLine.textContent = "Jaringan normal, namun confidence menengah. Disarankan tetap monitoring berkala.";
+          } else {
+            statusClass = "status-line status-bad";
+            noteLine.textContent = "Normal tetapi confidence rendah. Jadikan warning awal dan lakukan pemantauan lebih intensif.";
+          }
+        } else {
+          statusClass = "status-line status-good";
+          noteLine.textContent = "Jaringan terdeteksi normal berdasarkan parameter yang dimasukkan.";
+        }
+
+        statusLine.className = statusClass;
+
+        if(actionList){
+          actionList.innerHTML = `
+            <li>Lanjutkan monitoring rutin.</li>
+            <li>Simpan log sebagai baseline performa.</li>
+            <li>Pastikan packet loss tetap rendah.</li>
+          `;
+        }
+      }
+
+      if (data.explanation) {
+        if (noteLine.textContent && noteLine.textContent.length > 0) noteLine.textContent += " ";
+        noteLine.textContent += "Fitur yang paling berpengaruh: " + data.explanation + ".";
+      }
+
+    } catch (err) {
+      statusLine.textContent = "Gagal menghubungi server.";
+      statusLine.className = "status-line status-bad";
+      noteLine.textContent = "Pastikan server Flask masih berjalan dan koneksi jaringan tidak bermasalah.";
+      console.error(err);
+    }
+  });
+</script>
+
+
+{% endblock %}
