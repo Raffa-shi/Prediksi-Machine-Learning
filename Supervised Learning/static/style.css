@@ -1205,11 +1205,11 @@ code {
   color: rgba(255,255,255,0.95);
 }
 
-/* ========= ABOUT ========= */
+/*  ABOUT Footer */
 .footLogoLarge {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
 
   display: flex;
   align-items: center;
