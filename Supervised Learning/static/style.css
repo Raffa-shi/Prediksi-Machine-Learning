@@ -1209,7 +1209,7 @@ code {
 .footLogoLarge {
   width: 150px;
   height: 150px;
-  border-radius: 10px;
+  border-radius: 100px;
 
   display: flex;
   align-items: center;
@@ -1223,8 +1223,8 @@ code {
 
 /* logo image di dalam kotak */
 .footLogoLarge img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 90%;
+  max-height: 90%;
 
   width: auto;
   height: auto;
